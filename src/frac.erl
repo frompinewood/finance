@@ -1,27 +1,43 @@
 -module(frac).
--export([add/2, sub/2, mul/2, divd/2, lcm/2, gcd/2, conv/2, simple/1]).
+-export([add/2, 
+         sub/2, 
+         mul/2, 
+         divd/2, 
+         lcm/2, 
+         gcd/2, 
+         conv/2, 
+         simple/1, 
+         improper/1,
+         recp/1]).
 
+%% fraction represented as {Whole, Numerator, Denominator}
 -type frac() :: {integer(), integer(), integer()}.
 
 -spec add(frac(), frac()) -> frac().
-add({Wa, Na, D}, {Wb, Nb, D}) ->
-    Rem = (Na + Nb) rem D,
-    Div = (Na + Nb) div D,
-    Wc = Wa + Wb + Div,
-    simple({Wc, Rem, D});
-add({Wa, Na, Da}, {Wb, Nb, Db}) -> 
-    {A, B} = conv({Wa, Na, Da},{Wb, Nb, Db}),
-    add(A, B).
+add({0, Na, D}, {0, Nb, D}) ->
+    simple({0, Na + Nb, D});
+add(A, B) ->
+    {A1, B1} = conv(A, B),
+    add(improper(A1), improper(B1)).
 
 -spec sub(frac(), frac()) -> frac().
-sub(A, B) -> throw(noimpl).
+sub({0, Na, D}, {0, Nb, D}) ->
+    simple({0, Na - Nb, D});
+sub(A, B) ->
+    {A1, B1} = conv(A, B),
+    sub(improper(A1), improper(B1)).
 
 -spec mul(frac(), frac()) -> frac().
-mul(A, B) -> throw(noimpl).
+mul({Wa, Na, Da}, {Wb, Nb, Db}) ->
+    Nc = (Wa * Da) + Na, 
+    Nd = (Wb * Db) + Nb,
+    simple({0, Nc * Nd, Da * Db}).
 
 -spec divd(frac(), frac()) -> frac().
-divd(A, B) -> throw(noimpl).
+divd(A, B) ->
+    mul(A, recp(B)).
 
+%% least common multiple
 -spec lcm(integer(), integer()) -> integer().
 lcm(A, A) -> A;
 lcm(A, B) ->
@@ -30,16 +46,17 @@ lcm(A, B) ->
 -spec lcm(integer(), integer(), integer(), integer()) -> integer().
 lcm(_, A1, _, A1) -> A1;
 lcm(A, A1, B, B1) when A1 > B1 ->
-    lcm(B, B1, A, A1);
+    lcm(B, B1+B, A, A1);
 lcm(A, A1, B, B1) ->
     lcm(A, A1+A, B, B1).
 
+% modulo based greatest common dividor
 -spec gcd(integer(), integer()) -> integer().
 gcd(A, 0) -> A;
 gcd(A, B) -> gcd(B, A rem B).
 
--spec conv(frac(), frac()) -> {frac(), frac()}.
 % convert fractions to use a common multiple
+-spec conv(frac(), frac()) -> {frac(), frac()}.
 conv({_, _, D} = A, {_, _, D} = B) -> {A, B}; 
 conv({Wa, Na, Da}, {Wb, Nb, Db}) ->
     LCM = lcm(Da, Db),
@@ -48,8 +65,18 @@ conv({Wa, Na, Da}, {Wb, Nb, Db}) ->
     {{Wa, Na * Ra, LCM}, {Wb, Nb * Rb, LCM}}.
 
 -spec simple(frac()) -> frac().
-%% TODO simple should also reduce fraction if possible
 simple({W, N, D}) ->
     GCD = gcd(N, D),
-    {W, N div GCD, D div GCD}.
+    Na = N div GCD,
+    Da = D div GCD,
+    Wa = W + (Na div Da),
+    Nb = Na rem Da,
+    {Wa, Nb, Da}.
+
+-spec improper(frac()) -> frac().
+improper({W, N, D}) ->
+    {0, N + (W * D), D}.
     
+-spec recp(frac()) -> frac().
+recp({W, N, D}) ->
+    {0, D, (W * D) + N}.
