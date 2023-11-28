@@ -2,13 +2,17 @@
 -export([add/2, 
          sub/2, 
          mul/2, 
-         divd/2, 
-         lcm/2, 
+         divd/2]). 
+-export([lcm/2, 
          gcd/2, 
          conv/2, 
          simple/1, 
          improper/1,
          recp/1]).
+-export([frac_to_integer/1,
+         frac_to_float/1,
+         integer_to_frac/1,
+         float_to_frac/1]).
 
 %% fraction represented as {Whole, Numerator, Denominator}
 -type frac() :: {integer(), integer(), integer()}.
@@ -80,3 +84,25 @@ improper({W, N, D}) ->
 -spec recp(frac()) -> frac().
 recp({W, N, D}) ->
     {0, D, (W * D) + N}.
+
+-spec frac_to_integer(retry, frac()) -> integer().
+frac_to_integer(retry, {W, 0, 1}) -> W;
+frac_to_integer(retry, Frac) ->
+    throw({badarg, lists:flatten(
+                     io_lib:format("~p cannot be an integer", [Frac]))}).
+
+-spec frac_to_integer(frac()) -> integer().
+frac_to_integer({W, 0, 1}) -> W;
+frac_to_integer({W, N, D}) -> 
+    frac_to_integer(retry, simple({W, N, D})).
+
+-spec frac_to_float(frac()) -> float().
+frac_to_float(Frac) -> 
+    {W, N, D} = simple(Frac),
+    W + (N / D).
+
+-spec integer_to_frac(integer()) -> frac().
+integer_to_frac(I) -> {I, 0, 1}.
+
+-spec float_to_frac(float()) -> frac().
+float_to_frac(_) -> throw(noimpl).
