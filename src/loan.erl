@@ -1,8 +1,7 @@
 -module(loan).
 
 -export([payment/3]).
--type frac() :: {integer(), integer(), integer()}.
--spec payment(frac(), frac(), frac()) -> frac().
+-spec payment(frac:frac(), frac:frac(), frac:frac()) -> frac:frac().
 %% @doc calculates the amortized schedule payment for a monthly loan
 payment(Balance, Apr, Term) ->
     PI = frac:divd(Apr, {12, 0, 1}),

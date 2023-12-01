@@ -4,7 +4,7 @@
 -export([lcm/2, gcd/2, conv/2, simple/1, improper/1, recp/1, round/2, is_whole/1, lt/2,
          lte/2, gt/2, gte/2]).
 -export([frac_to_integer/1, frac_to_float/1, integer_to_frac/1, float_to_frac/1]).
-
+-export_type([frac/0]).
 -type frac() :: {integer(), integer(), integer()}.
 
 -spec add(frac(), frac()) -> frac().
