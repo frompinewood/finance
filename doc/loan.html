@@ -10,20 +10,26 @@
 <hr>
 
 <h1>Module loan</h1>
-<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+<ul class="index"><li><a href="#types">Data Types</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="types">Data Types</a></h2>
+
+<h3 class="typedecl"><a name="type-frac">frac()</a></h3>
+<p><tt>frac() = {integer(), integer(), integer()}</tt></p>
 
 
 <h2><a name="index">Function Index</a></h2>
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#payment-3">payment/3</a></td><td></td></tr>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#payment-3">payment/3</a></td><td>calculates the amortized schedule payment for a monthly loan.</td></tr>
 </table>
 
 <h2><a name="functions">Function Details</a></h2>
 
 <h3 class="function"><a name="payment-3">payment/3</a></h3>
 <div class="spec">
-<p><tt>payment(Balance, Apr, Term) -&gt; any()</tt></p>
+<p><tt>payment(Balance::<a href="#type-frac">frac()</a>, Apr::<a href="#type-frac">frac()</a>, Term::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
 <p> </p>
-</div>
+</div><p>calculates the amortized schedule payment for a monthly loan</p>
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
