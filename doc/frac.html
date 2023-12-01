@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module frac</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module frac</h1>
+<ul class="index"><li><a href="#types">Data Types</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="types">Data Types</a></h2>
+
+<h3 class="typedecl"><a name="type-frac">frac()</a></h3>
+<p><tt>frac() = {integer(), integer(), integer()}</tt></p>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#add-2">add/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#conv-2">conv/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#divd-2">divd/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#float_to_frac-1">float_to_frac/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#frac_to_float-1">frac_to_float/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#frac_to_integer-1">frac_to_integer/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#gcd-2">gcd/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#gt-2">gt/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#gte-2">gte/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#improper-1">improper/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#integer_to_frac-1">integer_to_frac/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#is_whole-1">is_whole/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#lcm-2">lcm/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#lt-2">lt/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#lte-2">lte/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#mul-2">mul/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#pow-2">pow/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#recp-1">recp/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#round-2">round/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#simple-1">simple/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#sub-2">sub/2</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="add-2">add/2</a></h3>
+<div class="spec">
+<p><tt>add(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="conv-2">conv/2</a></h3>
+<div class="spec">
+<p><tt>conv(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; {<a href="#type-frac">frac()</a>, <a href="#type-frac">frac()</a>}</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="divd-2">divd/2</a></h3>
+<div class="spec">
+<p><tt>divd(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="float_to_frac-1">float_to_frac/1</a></h3>
+<div class="spec">
+<p><tt>float_to_frac(X1::float()) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="frac_to_float-1">frac_to_float/1</a></h3>
+<div class="spec">
+<p><tt>frac_to_float(Frac::<a href="#type-frac">frac()</a>) -&gt; float()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="frac_to_integer-1">frac_to_integer/1</a></h3>
+<div class="spec">
+<p><tt>frac_to_integer(Frac::<a href="#type-frac">frac()</a>) -&gt; integer()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="gcd-2">gcd/2</a></h3>
+<div class="spec">
+<p><tt>gcd(A::integer(), B::integer()) -&gt; integer()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="gt-2">gt/2</a></h3>
+<div class="spec">
+<p><tt>gt(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; boolean()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="gte-2">gte/2</a></h3>
+<div class="spec">
+<p><tt>gte(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; boolean()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="improper-1">improper/1</a></h3>
+<div class="spec">
+<p><tt>improper(X1::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="integer_to_frac-1">integer_to_frac/1</a></h3>
+<div class="spec">
+<p><tt>integer_to_frac(I::integer()) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="is_whole-1">is_whole/1</a></h3>
+<div class="spec">
+<p><tt>is_whole(Val::<a href="#type-frac">frac()</a>) -&gt; boolean()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="lcm-2">lcm/2</a></h3>
+<div class="spec">
+<p><tt>lcm(A::integer(), B::integer()) -&gt; integer()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="lt-2">lt/2</a></h3>
+<div class="spec">
+<p><tt>lt(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; boolean()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="lte-2">lte/2</a></h3>
+<div class="spec">
+<p><tt>lte(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; boolean()</tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="mul-2">mul/2</a></h3>
+<div class="spec">
+<p><tt>mul(X1::<a href="#type-frac">frac()</a>, X2::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="pow-2">pow/2</a></h3>
+<div class="spec">
+<p><tt>pow(Base::<a href="#type-frac">frac()</a>, Exp::integer()) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="recp-1">recp/1</a></h3>
+<div class="spec">
+<p><tt>recp(X1::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="round-2">round/2</a></h3>
+<div class="spec">
+<p><tt>round(X1::<a href="#type-frac">frac()</a>, Precision::integer()) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="simple-1">simple/1</a></h3>
+<div class="spec">
+<p><tt>simple(X1::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="sub-2">sub/2</a></h3>
+<div class="spec">
+<p><tt>sub(A::<a href="#type-frac">frac()</a>, B::<a href="#type-frac">frac()</a>) -&gt; <a href="#type-frac">frac()</a></tt><br></p>
+<p> </p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc</i></p>
+</body>
+</html>
